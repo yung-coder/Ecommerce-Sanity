@@ -14,7 +14,6 @@ const getData = async () => {
 
 async function Products(): Promise<JSX.Element> {
   const { products, bannerData } = await getData();
-  console.log(bannerData);
   return (
     <div className="flex flex-col">
       <div className="flex justify-center items-center p-3">
@@ -23,8 +22,8 @@ async function Products(): Promise<JSX.Element> {
 
       <div>{products?.map((pro: any) => pro.name)}</div>
 
-      <div className="text-black">{bannerData[0].smallText}</div>
-      <img src={`${urlFor(bannerData[0].image).toString()}`} alt="" />
+      {/* <div className="text-black">{bannerData[0].smallText}</div>
+      <img src={`${urlFor(bannerData[0].image).toString()}`} alt="" /> */}
     </div>
   );
 }
