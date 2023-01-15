@@ -171,7 +171,7 @@ async function page({
         </section>
         <div className="flex justify-center items-center flex-col space-y-4 p-10">
           <h1 className="text-2xl font-bold">SIMILAR PRODUCTS</h1>
-          <div className="flex justify-center items-center p-5">
+          <div className="flex flex-col md:flex-row justify-center items-center p-5">
             {products.map((product: any) => {
               return (
                 <div className="shadow-2xl transition ease-in delay-150 hover:-translate-y-1 hover:scale-110 m-5">
