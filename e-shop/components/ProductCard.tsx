@@ -13,7 +13,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   console.log(product);
   return (
     <Link href={`/product/${product.slug.current}`}>
-      <div className="flex flex-col p-2 justify-center  cursor-pointer ">
+      <div className="flex flex-col p-2 justify-center  cursor-pointer  ">
         <div className="bg-gray-200 h-fit w-fit rounded-2xl">
           <div className="p-7">
             <img

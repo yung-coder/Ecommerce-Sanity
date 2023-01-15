@@ -24,7 +24,7 @@ async function Products(): Promise<JSX.Element> {
       <div className="flex p-11 flex-col space-y-5 md:flex md:flex-row  md:space-x-16 md:space-y-0 justify-center items-center ">
         {products.map((product: any) => {
           return (
-            <div className="p-5 shadow-2xl">
+            <div className="p-5 shadow-2xl transition ease-in delay-150 hover:-translate-y-1 hover:scale-110">
               <ProductCard product={product} key={product.slug} />
             </div>
           );
