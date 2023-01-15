@@ -11,7 +11,6 @@ const getData = async () => {
 
 async function Hero(): Promise<JSX.Element> {
   const { bannerData } = await getData();
-  console.log(bannerData);
   return (
     <div>
       <div className="flex  bg-gray-200 -space-y-14 w-full">
