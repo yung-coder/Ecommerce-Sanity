@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Products from "../components/Products";
 
@@ -10,6 +11,7 @@ const page = () => {
      <div>
        <Hero />
        <Products />
+       <Footer />
      </div>
    )
 };

@@ -21,12 +21,12 @@ async function Products(): Promise<JSX.Element> {
       <div className="flex justify-center items-center p-3">
         <h1 className="text-2xl font-bold">Best Seller Products</h1>
       </div>
-      <div>
+      <div className="flex flex-wrap p-8 justify-center items-center">
         {products.map((product: any) => {
           return (
-            <>
+            <div className="p-4">
               <ProductCard product={product} key={product.slug} />
-            </>
+            </div>
           );
         })}
       </div>
