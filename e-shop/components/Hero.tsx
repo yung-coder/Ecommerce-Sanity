@@ -11,31 +11,26 @@ const getData = async () => {
 
 async function Hero(): Promise<JSX.Element> {
   const { bannerData } = await getData();
+  console.log(bannerData);
   return (
-    <div>
-      <div className="flex  bg-gray-200 -space-y-14 w-full">
-        <div className="flex-1 flex-col">
-          <div className="flex flex-col justify-center  p-10 space-y-5">
-            <h2 className="text-sm">{bannerData[0].smallText}</h2>
-            <h1 className="text-3xl font-bold">{bannerData[0].midText}</h1>
+    <>
+      <section className="bg-white dark:bg-gray-900">
+        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+          <div className="mr-auto place-self-center lg:col-span-7">
+            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+              ShopKenn
+            </h1>
+            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+              From checkout to global sales tax compliance, companies around the
+              world use Flowbite to simplify their payment stack.
+            </p>
           </div>
-          <div className="flex flex-col p-10">
-            <Link href={"product/ID"}>
-              <button className="bg-red-500 text-white px-3 rounded-2xl">
-                Button
-              </button>
-            </Link>
-            <div className="relative flex justify-center items-center flex-col p-10 top-16 left-44">
-              <h2 className="text-xs">Decsription</h2>
-              <h3 className="text-sm text-gray-300">{bannerData.desc}</h3>
-            </div>
+          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <img src="./cart.png" alt="mockup" />
           </div>
         </div>
-        <div>
-          <img src={`${urlFor(bannerData[0].image).toString()}`} alt="" />
-        </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
 export default Hero;

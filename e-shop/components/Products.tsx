@@ -17,14 +17,14 @@ async function Products(): Promise<JSX.Element> {
   const { products, bannerData } = await getData();
   console.log(products);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-gray-100">
       <div className="flex justify-center items-center p-3">
         <h1 className="text-2xl font-bold">Best Seller Products</h1>
       </div>
-      <div className="flex flex-wrap p-8 justify-center items-center">
+      <div className="flex p-11 flex-col space-y-5 md:flex md:flex-row  md:space-x-16 md:space-y-0 justify-center items-center ">
         {products.map((product: any) => {
           return (
-            <div className="p-4">
+            <div className="p-5 shadow-2xl">
               <ProductCard product={product} key={product.slug} />
             </div>
           );
