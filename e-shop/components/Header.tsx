@@ -2,10 +2,13 @@
 
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useStateContext } from "../context/stateContext";
+import Cart from "./Cart";
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
+  const { showCart, setShowCart, totalQuantities } = useStateContext();
   return (
     <>
       <div className="flex justify-between items-center bg-gray-200">
@@ -13,8 +16,12 @@ const Header: React.FC<HeaderProps> = () => {
           <h1>Cart Narts</h1>
         </div>
         <div className="p-3 ">
-          <AiOutlineShoppingCart size={30} />
+          <AiOutlineShoppingCart
+            size={30}
+            onClick={() => setShowCart(!showCart)}
+          />
         </div>
+        {showCart && <Cart />}
       </div>
     </>
   );

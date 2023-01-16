@@ -10,6 +10,8 @@ interface ContextProps {
   qty: Number;
   inQty: () => void;
   decQty: () => void;
+  onAdd: (product: any, quantity: any) => void;
+  setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Context = createContext<ContextProps>({
@@ -20,14 +22,44 @@ const Context = createContext<ContextProps>({
   qty: 0,
   inQty: () => {},
   decQty: () => {},
+  onAdd: (product: any, quantity: any) => {},
+  setShowCart: (value: React.SetStateAction<boolean>) => {},
 });
 
 export const StateContext = ({ children }: { children: React.ReactNode }) => {
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
-  const [qty, setqty] = useState(1);
+  const [qty, setqty] = useState(0);
+
+  const onAdd = (product: any, quantity: any) => {
+    const checkProductInCart = cartItems.find(
+      (item: any) => item._id === product._id
+    );
+
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice + product.price * quantity
+    );
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+    if (checkProductInCart) {
+      const updatedCartItems = cartItems.map((cartProduct: any) => {
+        if (cartProduct._id === product._id)
+          return {
+            ...cartProduct,
+            quantity: cartProduct.quantity + quantity,
+          };
+      });
+
+      setCartItems(updatedCartItems);
+      console.log("added");
+    } else {
+      product.quantity = quantity;
+
+      setCartItems([...cartItems, { ...product }]);
+      console.log("added");
+    }
+  };
 
   const inQty = () => {
     setqty((prevQty) => prevQty + 1);
@@ -50,6 +82,8 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
         qty,
         inQty,
         decQty,
+        onAdd,
+        setShowCart,
       }}
     >
       {children}

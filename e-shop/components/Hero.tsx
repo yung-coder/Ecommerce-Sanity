@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useContext } from "react";
+import { useStateContext } from "../context/stateContext";
 
  const Hero: React.FC = () => {
   return (
