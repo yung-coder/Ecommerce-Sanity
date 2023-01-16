@@ -1,17 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
-import { client, urlFor } from "../lib/clinet";
+import React, { useContext } from "react";
 
-const getData = async () => {
-  const bannerQuery = '*[_type == "banner"]';
-  const bannerData = await client.fetch(bannerQuery);
-
-  return { bannerData };
-};
-
-async function Hero(): Promise<JSX.Element> {
-  const { bannerData } = await getData();
-  console.log(bannerData);
+ const Hero: React.FC = () => {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
