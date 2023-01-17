@@ -6,8 +6,7 @@ export const client = SanityClient({
   dataset: "production",
   apiVersion: "2023-01-15",
   useCdn: true,
-  token:
-    "sk6hopLkZuxNZKSt3TXfz2jHO3rL05FTO0oExupdtyS2DN1mt60KmIkdzRrkgVeIFoAApzDMbfpKXYY9uAaa28iQ32kiHm7qUjHkqO4Mwzjjw4AIVrW0tY3Od10mHFUSjQXGTpNPPYUq0Ui1K27QWw5nfdRRxs2fFyPa1Kj78wNdMXHrsuF5",
+  token: process.env.NEXT_PUBLIC_SANITY,
 });
 
 const builder = imageUrlBuilder(client);
