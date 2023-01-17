@@ -19,7 +19,7 @@ async function Products(): Promise<JSX.Element> {
   return (
     <div className="flex flex-col bg-white">
       <div className="flex justify-center items-center p-3">
-        <h1 className="text-2xl font-bold">Best Seller Products</h1>
+        <h1 className="text-2xl font-bold tracking-wide ">PRODUCTS SECTION</h1>
       </div>
       <div className="flex p-11 flex-col space-y-5 md:flex md:flex-row  md:space-x-16 md:space-y-0 justify-center items-center ">
         {products.map((product: any) => {

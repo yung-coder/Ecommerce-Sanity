@@ -33,7 +33,7 @@ async function page({
       <div className="flex flex-col">
         <ProductDetails product={product} />
         <div className="flex justify-center items-center flex-col space-y-4 p-10">
-          <h1 className="text-2xl font-bold">SIMILAR PRODUCTS</h1>
+          <h1 className="text-2xl font-bold">PRODUCTS YOU MAY LIKE</h1>
           <div className="flex flex-col md:flex-row justify-center items-center p-5">
             {products.map((product: any) => {
               return (

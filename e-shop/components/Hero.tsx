@@ -14,9 +14,8 @@ import { useStateContext } from "../context/stateContext";
               ShopKenn
             </h1>
             <h1 className="text-white text-2xl font-bold">Winter Sale 20% off</h1>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              From checkout to global sales tax compliance, companies around the
-              world use Flowbite to simplify their payment stack.
+            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 mt-4">
+              Stop And Shop 
             </p>
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
