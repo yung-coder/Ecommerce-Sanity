@@ -8,27 +8,23 @@ import {
   AiOutlineShop,
 } from "react-icons/ai";
 
-import { TiDeleteOutline } from "react-icons/ti";
+import { TiDeleteOutline, TiSocialGooglePlus } from "react-icons/ti";
 import toast from "react-hot-toast";
 import { urlFor } from "../lib/clinet";
 import { useStateContext } from "../context/stateContext";
 import getStripe from "../lib/getStripe";
-const Cart = () => {
+
+type CartProps = {
+  refrence: React.MutableRefObject<any>;
+};
+const Cart = ({ refrence }: CartProps) => {
   const {
-    showCart,
     setShowCart,
     cartItems,
     totalPrice,
     totalQuantities,
-    qty,
-    incQty,
-    decQty,
-    onAdd,
     toggleCartItemQuanitity,
     onRemove,
-    setCartItems,
-    setTotalPrice,
-    setTotalQuantities,
   } = useStateContext();
   const cartRef = useRef(null);
 
@@ -47,24 +43,28 @@ const Cart = () => {
 
     stripe.redirectToCheckout({ sessionId: data.id });
   };
+  const toogleCartoff = () => {
+    setShowCart(false);
+    refrence.current.style.display = "block";
+  };
   return (
     <div
       ref={cartRef}
-      className="absolute top-4 left-[73%] w-[25%] h-full bg-gray-100 rounded-2xl shadow-xl"
+      className="absolute top-4 w-fit  left-[20%]  h-full bg-gray-100 rounded-2xl shadow-xl md:left-[73%] md:w-[25%]"
     >
-      <div className="flex justify-start items-center p-3 space-x-3">
-        <button onClick={() => setShowCart(false)}>
+      <div className="flex justify-start items-center p-3 space-x-2">
+        <button onClick={toogleCartoff}>
           <AiOutlineLeft />
         </button>
-        <span>You cart</span>
-        <span>{`${totalQuantities}`}</span>
+        <span>You cart has </span>
+        <span>{`(${totalQuantities})`} items</span>
       </div>
 
-      <div className="flex flex-col justify-center items-center p-5">
+      <div className="flex flex-col justify-center items-center p-5 space-y-2">
         {cartItems.map((product: any) => {
           return (
             <>
-              <div className="flex justify-evenly ">
+              <div className="flex justify-evenly border-b-2 border-black ">
                 <div className="h-fit rounded-full">
                   <TiDeleteOutline onClick={() => onRemove(product)} />
                 </div>
@@ -101,28 +101,28 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              {cartItems.length >= 1 && (
-                <>
-                  <div className="flex flex-col absolute bottom-[200px]  w-[100%] ">
-                    <div className="flex justify-between p-5">
-                      <h1>SubTotal</h1>
-                      <h1>{`${totalPrice}`} $</h1>
-                    </div>
-                    <div className="flex justify-center items-center">
-                      <button
-                        className="bg-purple-500 text-white px-6 rounded-xl"
-                        onClick={handelCheckout}
-                      >
-                        Strpe
-                      </button>
-                    </div>
-                  </div>
-                </>
-              )}
             </>
           );
         })}
       </div>
+      {cartItems.length >= 1 && (
+        <>
+          <div className="flex flex-col absolute top-80  w-[100%] ">
+            <div className="flex justify-between p-5">
+              <h1>SubTotal</h1>
+              <h1>{`${totalPrice}`} $</h1>
+            </div>
+            <div className="flex justify-center items-center">
+              <button
+                className="bg-purple-500 text-white px-6 rounded-xl"
+                onClick={handelCheckout}
+              >
+                Strpe
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

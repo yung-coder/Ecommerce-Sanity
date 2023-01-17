@@ -15,7 +15,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img
             alt="ecommerce"
-            className="lg:w-1/2 w-full lg:h-auto h-56 object-cover object-center rounded"
+            className="lg:w-1/2 w-full lg:h-auto h-56 object-contain object-center rounded"
             src={urlFor(product.image[0]).url()}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -27,9 +27,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-400"
                   viewBox="0 0 24 24"
                 >
@@ -38,9 +38,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-400"
                   viewBox="0 0 24 24"
                 >
@@ -49,9 +49,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-400"
                   viewBox="0 0 24 24"
                 >
@@ -60,9 +60,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-400"
                   viewBox="0 0 24 24"
                 >
@@ -71,9 +71,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-400"
                   viewBox="0 0 24 24"
                 >

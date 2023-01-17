@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = () => {
           <h2 className="font-bold text-xs">20 Jan to 3 Feb</h2>
         </div>
         <div className="flex flex-col  space-y-3 text-white p-11">
-          <h1 className="text-xs">Beats Solo Air</h1>
+          <h1 className="text-xs">Beats</h1>
           <h1 className="text-2xl font-bold">Winter Sale</h1>
         </div>
       </div>
