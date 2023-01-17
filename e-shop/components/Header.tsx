@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = () => {
     <>
       <div className="flex justify-between items-center bg-gray-200">
         <div className="p-2">
-          <h1 className="text-xl font-bold text-gray-600">Cart Narts</h1>
+          <h1 className="text-xl font-bold text-gray-600">ShopKeen</h1>
         </div>
         <div className="p-3 cursor-pointer" ref={cartIconref}>
           <AiOutlineShoppingCart
@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = () => {
           />
         </div>
         {showCart && (
-          <div className="p-7">
+          <div className="p-7" key={showCart}>
             <Cart refrence={cartIconref}/>
           </div>
         )}

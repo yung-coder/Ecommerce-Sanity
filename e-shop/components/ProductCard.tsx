@@ -10,7 +10,6 @@ type ProductCardProps = {
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  console.log(product);
   return (
     <Link href={`/product/${product.slug.current}`} prefetch={true}>
       <div className="flex flex-col p-2 justify-center  cursor-pointer  ">

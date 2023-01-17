@@ -16,8 +16,6 @@ const getData = async (productID: string) => {
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
 
-  console.log(product);
-
   return {
     product,
     products,
@@ -37,7 +35,10 @@ async function page({
           <div className="flex flex-col md:flex-row justify-center items-center p-5">
             {products.map((product: any) => {
               return (
-                <div className="bg-transparent transition ease-in delay-150 hover:-translate-y-1 hover:scale-110 m-5">
+                <div
+                  className="bg-transparent transition ease-in delay-150 hover:-translate-y-1 hover:scale-110 m-5"
+                  key={product.name}
+                >
                   <ProductCard product={product} />
                 </div>
               );

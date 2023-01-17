@@ -59,52 +59,61 @@ const Cart = ({ refrence }: CartProps) => {
         <span>You cart has </span>
         <span>{`(${totalQuantities})`} items</span>
       </div>
-
-      <div className="flex flex-col justify-center items-center p-5 space-y-2">
-        {cartItems.map((product: any) => {
-          return (
-            <>
-              <div className="flex justify-evenly border-b-2 border-black ">
-                <div className="h-fit rounded-full">
-                  <TiDeleteOutline onClick={() => onRemove(product)} />
-                </div>
-                <div className="p-5">
-                  <div className="bg-gray-200 rounded-3xl">
-                    <img src={urlFor(product.image[0]).url()} alt="xxx" />
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center p-3 space-y-4 w-full">
-                  <div className="flex justify-between">
-                    <h1>{product.name}</h1>
-                    <h1>{product.price}$</h1>
-                  </div>
-                  <div className="flex  justify-center items-center cursor-pointer">
-                    <div
-                      className="w-8 flex justify-center items-center border"
-                      onClick={() =>
-                        toggleCartItemQuanitity(product._id, "dec")
-                      }
-                    >
-                      -
+      {cartItems.length >= 1 ? (
+        <>
+          <div className="flex flex-col justify-center items-center p-5 space-y-2">
+            {cartItems.map((product: any) => {
+              return (
+                <>
+                  <div className="flex justify-evenly border-b-2 border-black " key={product.name}>
+                    <div className="h-fit rounded-full">
+                      <TiDeleteOutline onClick={() => onRemove(product)} />
                     </div>
-                    <p className="w-8 flex justify-center items-center border">
-                      {product.quantity}
-                    </p>
-                    <div
-                      className="w-8 flex justify-center items-center border"
-                      onClick={() =>
-                        toggleCartItemQuanitity(product._id, "inc")
-                      }
-                    >
-                      +
+                    <div className="p-5">
+                      <div className="bg-gray-200 rounded-3xl">
+                        <img src={urlFor(product.image[0]).url()} alt="xxx" />
+                      </div>
+                    </div>
+                    <div className="flex flex-col justify-center p-3 space-y-4 w-full">
+                      <div className="flex justify-between">
+                        <h1>{product.name}</h1>
+                        <h1>{product.price}$</h1>
+                      </div>
+                      <div className="flex  justify-center items-center cursor-pointer">
+                        <div
+                          className="w-8 flex justify-center items-center border"
+                          onClick={() =>
+                            toggleCartItemQuanitity(product._id, "dec")
+                          }
+                        >
+                          -
+                        </div>
+                        <p className="w-8 flex justify-center items-center border">
+                          {product.quantity}
+                        </p>
+                        <div
+                          className="w-8 flex justify-center items-center border"
+                          onClick={() =>
+                            toggleCartItemQuanitity(product._id, "inc")
+                          }
+                        >
+                          +
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </div>
+                </>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="flex justify-center items-center h-full">
+            <h1 className="text-2xl font-black">Not Items Added</h1>
+          </div>
+        </>
+      )}
       {cartItems.length >= 1 && (
         <>
           <div className="flex flex-col absolute top-80  w-[100%] ">
@@ -117,7 +126,7 @@ const Cart = ({ refrence }: CartProps) => {
                 className="bg-purple-500 text-white px-6 rounded-xl"
                 onClick={handelCheckout}
               >
-                Strpe
+                Stripe
               </button>
             </div>
           </div>
