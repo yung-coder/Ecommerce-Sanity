@@ -37,7 +37,7 @@ async function page({
           <div className="flex flex-col md:flex-row justify-center items-center p-5">
             {products.map((product: any) => {
               return (
-                <div className="shadow-2xl transition ease-in delay-150 hover:-translate-y-1 hover:scale-110 m-5">
+                <div className="bg-transparent transition ease-in delay-150 hover:-translate-y-1 hover:scale-110 m-5">
                   <ProductCard product={product} />
                 </div>
               );

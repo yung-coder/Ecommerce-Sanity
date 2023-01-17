@@ -12,9 +12,9 @@ type ProductCardProps = {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   console.log(product);
   return (
-    <Link href={`/product/${product.slug.current}`}>
+    <Link href={`/product/${product.slug.current}`} prefetch={true}>
       <div className="flex flex-col p-2 justify-center  cursor-pointer  ">
-        <div className="bg-gray-200 h-fit w-fit rounded-2xl">
+        <div className="bg-gray-300 h-fit w-fit rounded-2xl">
           <div className="p-7">
             <img
               src={urlFor(product.image && product.image[0])
@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
         <div className="flex flex-col space-y-2">
-          <h1 className="text-gray-500 ">{product.name}</h1>
+          <h1 className="text-gray-700 ">{product.name}</h1>
           <h2 className="text-sm font-bold">{product.price}$</h2>
         </div>
       </div>

@@ -12,10 +12,10 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <>
       <div className="flex justify-between items-center bg-gray-200">
-        <div className="p-2 text-base text-gray-600 font-bold">
-          <h1>Cart Narts</h1>
+        <div className="p-2">
+          <h1 className="text-xl font-bold text-gray-600">Cart Narts</h1>
         </div>
-        <div className="p-3">
+        <div className="p-3 cursor-pointer">
           <AiOutlineShoppingCart
             size={30}
             onClick={() => setShowCart(true)}

@@ -6,7 +6,7 @@ type FooterProps = {};
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <footer className="bg-red-700 rounded-t-xl">
+    <footer className="bg-red-700">
       <div className="flex">
         <div className="flex flex-col text-white p-10 space-y-3 w-[50%]">
           <h1 className="text-sm">20% Discount</h1>
