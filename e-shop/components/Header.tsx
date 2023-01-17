@@ -15,10 +15,10 @@ const Header: React.FC<HeaderProps> = () => {
         <div className="p-2 text-base text-gray-600 font-bold">
           <h1>Cart Narts</h1>
         </div>
-        <div className="p-3 ">
+        <div className="p-3">
           <AiOutlineShoppingCart
             size={30}
-            onClick={() => setShowCart(!showCart)}
+            onClick={() => setShowCart(true)}
           />
         </div>
         {showCart && <Cart />}

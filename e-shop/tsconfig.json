@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "app/page.tsx", "components/Products.tsx", "context/stateContext.tsx"  ],
+, "app/page.tsx", "components/Products.tsx", "context/stateContext.js"  ],
   "exclude": [
     "node_modules"
   ]

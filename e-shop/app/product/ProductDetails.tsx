@@ -1,14 +1,16 @@
 "use client";
 
 import React from "react";
-import { urlFor } from "../../lib/clinet";
 import { useStateContext } from "../../context/stateContext";
+import { urlFor } from "../../lib/clinet";
 type ProductDetailsProps = {
   product: any;
 };
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
-  const { qty, inQty, decQty, onAdd } = useStateContext();
+  const {  onAdd , qty,
+    incQty,
+    decQty, } = useStateContext();
   return (
     <section className="text-gray-400 bg-gray-900 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
@@ -136,7 +138,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                   </p>
                   <div
                     className="w-8 flex justify-center items-center border"
-                    onClick={inQty}
+                    onClick={incQty}
                   >
                     +
                   </div>
