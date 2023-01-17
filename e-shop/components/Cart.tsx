@@ -12,7 +12,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
 import { urlFor } from "../lib/clinet";
 import { useStateContext } from "../context/stateContext";
-
+import getStripe from "../lib/getStripe";
 const Cart = () => {
   const {
     showCart,
@@ -31,6 +31,22 @@ const Cart = () => {
     setTotalQuantities,
   } = useStateContext();
   const cartRef = useRef(null);
+
+  const handelCheckout = async () => {
+    const stripe = await getStripe();
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+    if (response.status === 500) return;
+
+    const data = await response.json();
+
+    stripe.redirectToCheckout({ sessionId: data.id });
+  };
   return (
     <div
       ref={cartRef}
@@ -65,7 +81,9 @@ const Cart = () => {
                   <div className="flex  justify-center items-center cursor-pointer">
                     <div
                       className="w-8 flex justify-center items-center border"
-                      onClick={() => toggleCartItemQuanitity(product._id, "dec")}
+                      onClick={() =>
+                        toggleCartItemQuanitity(product._id, "dec")
+                      }
                     >
                       -
                     </div>
@@ -74,7 +92,9 @@ const Cart = () => {
                     </p>
                     <div
                       className="w-8 flex justify-center items-center border"
-                      onClick={() => toggleCartItemQuanitity(product._id, "inc")}
+                      onClick={() =>
+                        toggleCartItemQuanitity(product._id, "inc")
+                      }
                     >
                       +
                     </div>
@@ -89,7 +109,10 @@ const Cart = () => {
                       <h1>{`${totalPrice}`} $</h1>
                     </div>
                     <div className="flex justify-center items-center">
-                      <button className="bg-purple-500 text-white px-6 rounded-xl">
+                      <button
+                        className="bg-purple-500 text-white px-6 rounded-xl"
+                        onClick={handelCheckout}
+                      >
                         Strpe
                       </button>
                     </div>
