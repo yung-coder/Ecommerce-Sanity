@@ -28,7 +28,7 @@ async function page({
   const { product, products } = await getData(productID);
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <ProductDetails product={product} />
         <div className="flex justify-center items-center flex-col space-y-4 p-10">
           <h1 className="text-2xl font-bold">PRODUCTS YOU MAY LIKE</h1>

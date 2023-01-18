@@ -16,7 +16,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <img
             alt="ecommerce"
             className="lg:w-1/2 w-full lg:h-auto h-56 object-contain object-center rounded"
-            src={urlFor(product.image[0]).url()}
+            src={`${
+              product != null ? `${urlFor(product.image[0]).url()}` : ""
+            }`}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h1 className="text-white text-3xl title-font font-medium mb-1">
@@ -107,7 +109,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-white">
-                {product.price} $
+                {product.price} ₹
               </span>
               <button
                 className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"

@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <div className="flex flex-col space-y-2">
           <h1 className="text-gray-700 ">{product.name}</h1>
-          <h2 className="text-sm font-bold">{product.price}$</h2>
+          <h2 className="text-sm font-bold">{product.price} ₹</h2>
         </div>
       </div>
     </Link>

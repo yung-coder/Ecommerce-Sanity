@@ -66,7 +66,7 @@ const Cart = ({ refrence }: CartProps) => {
               return (
                 <>
                   <div className="flex justify-evenly border-b-2 border-black " key={product.name}>
-                    <div className="h-fit rounded-full">
+                    <div className="h-fit rounded-full cursor-pointer">
                       <TiDeleteOutline onClick={() => onRemove(product)} />
                     </div>
                     <div className="p-5">
@@ -119,7 +119,7 @@ const Cart = ({ refrence }: CartProps) => {
           <div className="flex flex-col absolute top-80  w-[100%] ">
             <div className="flex justify-between p-5">
               <h1>SubTotal</h1>
-              <h1>{`${totalPrice}`} $</h1>
+              <h1>{`${totalPrice}`} ₹</h1>
             </div>
             <div className="flex justify-center items-center">
               <button
